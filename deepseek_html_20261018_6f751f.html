@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollie's Image OSINT</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Library EXIF Reader -->
+    <script src="https://cdn.jsdelivr.net/npm/exifreader@4.14.0/dist/exif-reader.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Image OSINT Tracker</h1>
+        <p class="desc">Upload foto target. Sistem bakal nyedot metadata (GPS, Kamera) dan nyiapin link Reverse Search.</p>
+        
+        <div class="upload-area" id="drop-zone">
+            <input type="file" id="file-input" accept="image/*" hidden>
+            <div class="upload-content" onclick="document.getElementById('file-input').click()">
+                <span style="font-size: 40px;">📁</span>
+                <p>Klik atau Drag & Drop Foto di sini</p>
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">Memproses gambar...</div>
+        <div id="results" class="hidden">
+            <h2>Hasil Analisis:</h2>
+            
+            <div class="result-box">
+                <h3>📍 Metadata EXIF</h3>
+                <pre id="exif-output">Memuat...</pre>
+            </div>
+
+            <div class="result-box">
+                <h3>🔍 Reverse Image Search Links</h3>
+                <p>Klik link di bawah buat nglacak foto ini di internet:</p>
+                <div class="links" id="link-output"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
